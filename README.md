@@ -17,9 +17,18 @@ java -jar microservices/recommendation-service/build/libs/*.jar &
 java -jar microservices/review-service/build/libs/*.jar &
 ```
 
+## TEST A SERVICE MANUALLY
+
+Example:
+
+```
+ curl http://localhost:7000/product-composite/1 | jq .
+
+```
+
 ## TEST ALL SERVICES 
 
-Prepequisite: all services must be running
+Prerequisite: all services must be running
 
 ```agsl
 ./test-em-all.bash
