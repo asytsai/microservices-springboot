@@ -16,6 +16,18 @@ java -jar microservices/product-service/build/libs/*.jar &
 java -jar microservices/recommendation-service/build/libs/*.jar &
 java -jar microservices/review-service/build/libs/*.jar &
 ```
+## RUN A SERVICE IN DOCKER
+
+```
+cd microservices/product-service
+docker build -t product-service .
+```
+
+Check if we got a docker image 
+```
+docker images | grep pro
+```
+
 
 ## TEST A SERVICE MANUALLY
 
@@ -26,16 +38,17 @@ Example:
 
 ```
 
+
 ## TEST ALL SERVICES 
 
 Prerequisite: all services must be running
 
-```agsl
+```
 ./test-em-all.bash
 ```
 
 ## STOP ALL SERVICES
 
-```agsl
+```
 kill $(jobs -p)
 ```
