@@ -18,16 +18,48 @@ java -jar microservices/review-service/build/libs/*.jar &
 ```
 ## RUN A SERVICE IN DOCKER
 
+
+Build
+
 ```
 cd microservices/product-service
 docker build -t product-service .
 ```
 
-Check if we got a docker image 
+Check if we got a docker image for product service:
+
 ```
-docker images | grep pro
+docker images | grep product-service
 ```
 
+Run a container
+
+```
+docker run --rm -p8080:8080 -e "SPRING_PROFILES_ACTIVE=docker" product-service
+```
+
+Run a container in detached mode
+```
+docker run -d -p8080:8080 -e "SPRING_PROFILES_ACTIVE=docker" --name prd-svc product-service
+```
+
+Send a request to a running service 
+
+```
+curl localhost:8080/product/3
+```
+
+Get the logs of a service running in docker
+
+``` 
+docker logs prd-svc -f
+```
+
+Stop the service and remove the container
+
+```
+docker rm -f prd-svc
+```
 
 ## TEST A SERVICE MANUALLY
 
