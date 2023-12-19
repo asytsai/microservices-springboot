@@ -75,7 +75,6 @@ docker-compose down
 
 ## TEST A SERVICE MANUALLY
 
-Example:
 
 ```
  curl http://localhost:7000/product-composite/1 | jq .
@@ -88,7 +87,7 @@ Example:
 Prerequisite: all services must be running
 
 ```
-./test-em-all.bash
+./test-em-all.bash start stop
 ```
 
 ## STOP ALL SERVICES
