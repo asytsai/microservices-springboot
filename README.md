@@ -61,6 +61,18 @@ Stop the service and remove the container
 docker rm -f prd-svc
 ```
 
+
+## RUN ALL MICROSERVICES IN DOCKER
+
+``` 
+./gradlew build
+docker-compose build
+docker-compose up -d
+docker-compose logs -f
+curl localhost:8080/product-composite/123 -s | jq .   # This will give the API response
+docker-compose down
+```
+
 ## TEST A SERVICE MANUALLY
 
 Example:
